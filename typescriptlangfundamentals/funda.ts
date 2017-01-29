@@ -3,10 +3,13 @@ console.log('OS Name is $(osName)');
 
 function whatisOS() : string {
     return osName;
+
+
+
 }
 
 function thisIsVersion (ver: number){
-    console.log('OS version is $(ver)')
+    console.log('OS version is:  $(ver)')
 }
 
 whatisOS();
