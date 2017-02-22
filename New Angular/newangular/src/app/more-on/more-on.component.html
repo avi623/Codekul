@@ -1,0 +1,24 @@
+<div>
+  <h1>More about Components</h1>
+  <hr>
+</div>
+
+<div>
+  <app-ng-content>
+    <div>
+      <label>Android </label><input type="text" value = "Okay" #tm> 
+    </div>
+  </app-ng-content>
+</div>
+<hr>
+<div>
+  <app-ng-content>
+    <input type="button" value="okay" class="btn btn-primary">
+  </app-ng-content>
+</div>
+
+<div>
+  <h1>Local References</h1>
+  <hr>
+  <input type="text" #mCity [value]="city" [(ngModel)]="anyName"> <input class="btn btn-primary" type="button" value="Uppecase" (click)="makeUpper(mCity.value)">
+</div>
