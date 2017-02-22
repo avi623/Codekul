@@ -1,0 +1,36 @@
+<div>
+  <h1>Directives</h1>
+  <hr>
+</div>
+
+<div>
+  <h3>Attribute Directives</h3>
+  <hr>
+</div>
+<div>
+  <div [ngClass]="{well : true}">
+    codekul.com
+  </div>
+
+  <div [style.border]="'1px solid red'">
+    codekul.com
+  </div>
+
+  <div [ngStyle]="borderStyle">
+    codekul.com
+  </div>
+</div>
+
+<div>
+  <h3>Custom Attribute Directives</h3>
+  <hr>
+</div>
+<div>
+  <div>
+    <input type="text" appSizer>
+  </div>
+
+  <div>
+    <input type="text">
+  </div>
+</div>

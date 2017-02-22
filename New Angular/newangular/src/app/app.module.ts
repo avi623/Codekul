@@ -18,6 +18,8 @@ import { FirstProjModComponent } from './first-proj-mod/first-proj-mod.component
 import { FooterComponent } from './first-proj-mod/footer.component';
 import { ImagePresenterComponent } from './first-proj-mod/image-presenter.component';
 import { VehicleSelectionComponent } from './first-proj-mod/vehicle-selection.component';
+import { LifeCycleComponent } from './life-cycle/life-cycle.component';
+import { DirectivesComponent } from './directives/directives.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { VehicleSelectionComponent } from './first-proj-mod/vehicle-selection.co
     FooterComponent,
     FirstProjModComponent,
     ImagePresenterComponent,
-    VehicleSelectionComponent
+    VehicleSelectionComponent,
+    LifeCycleComponent,
+    DirectivesComponent
   ],
   imports: [
     BrowserModule,
