@@ -1,0 +1,14 @@
+<div>
+  <h1>Services</h1>
+  <hr>
+</div>
+<div>
+  <span><input type="text"  #deviceName></span>
+  <span><input type="text" #devicePrice></span>
+  <span><input type="button" class="btn btn-primary" value ="New" (click)="newDevice(deviceName.value, devicePrice.value)"></span>
+</div>
+<div>
+  <ul>
+    <li *ngFor="let dev of getAllDevices()">{{dev.name}}</li>
+  </ul>
+</div>
