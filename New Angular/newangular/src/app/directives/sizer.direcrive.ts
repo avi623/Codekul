@@ -1,29 +1,35 @@
-import { Directive, ElementRef, Renderer, HostListener, HostBinding } from '@angular/core';
+import {
+  Input,
+  Directive,
+  ElementRef,
+  Renderer,
+  HostListener,
+  HostBinding,
+  OnInit
+} from '@angular/core';
 
 @Directive({
   selector: '[appSizer]'
 })
-export class SizerDirective {
+export class SizerDirective implements OnInit {
 
+  @Input('appSizer') preSize: number;
+
+  @HostBinding('style.width') width: string;
+
+  @HostListener('mouseleave') mouseLeave() {
+    this.width = this.preSize + 'px';
+  }
+  @HostListener('mouseenter') mouseEnter() {
+    this.width = '400px';
+  }
   constructor(
     private elRef: ElementRef,
     private rend: Renderer
   ) {
-    //this.elRef.nativeElement.style.width = '300px';
-    this.rend.setElementStyle(this.elRef.nativeElement, 'width', '300px');
-  }
 
-  @HostBinding('style.width') set width(width) {
-    this.rend.setElementStyle(this.elRef.nativeElement, 'width', width);
   }
-
-  @HostListener('mouseleave')
-  mouseLeave() {
-    this.width = '100px';
-  }
-
-  @HostListener('mouseenter')
-  mouseEnter() {
-    this.width = '300px';
+  ngOnInit() {
+    this.width = this.preSize + 'px';
   }
 }

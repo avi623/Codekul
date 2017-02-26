@@ -27,10 +27,52 @@
 </div>
 <div>
   <div>
-    <input type="text" appSizer>
+    <input type="text" [appSizer]="50">
   </div>
 
   <div>
     <input type="text">
+  </div>
+</div>
+
+<div>
+  <h1>Structural Directives</h1>
+  <hr>
+</div>
+<div>
+  <h3>*ngIf</h3>
+  <div *ngIf="shouldShow"> <input type="text"> </div>
+  <div> <input type="button" class="btn btn-primary" value="Okay" (click)="shouldShow = !shouldShow"> </div>
+</div>
+
+<div>
+  <h3>*ngFor</h3>
+  <ul>
+    <li *ngFor="let fruit of fruits">{{fruit ==='Mango' ? fruitTaste(fruit) : fruit}}</li>
+  </ul>
+</div>
+
+<div>
+  <h3>*ngSwitch</h3>
+  <div>
+    <input type="number" [(ngModel)]="day" />
+  </div>
+  <div [ngSwitch]="day">
+    <div *ngSwitchCase="1">SUN</div>
+    <div *ngSwitchCase="2">TUE</div>
+    <div *ngSwitchCase="3">WED</div>
+    <div *ngSwitchCase="4">THU</div>
+    <div *ngSwitchCase="5">FRI</div>
+    <div *ngSwitchCase="6">SAT</div>
+    <div *ngSwitchDefault>Invalid Day</div>
+  </div>
+</div>
+
+<div>
+  <h3>Desugaring Mechanism</h3>
+  <div>
+    <template [ngIf]="shouldShow">
+      <div> Yes its Desugaring </div>
+    </template>
   </div>
 </div>

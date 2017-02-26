@@ -20,6 +20,9 @@ import { ImagePresenterComponent } from './first-proj-mod/image-presenter.compon
 import { VehicleSelectionComponent } from './first-proj-mod/vehicle-selection.component';
 import { LifeCycleComponent } from './life-cycle/life-cycle.component';
 import { DirectivesComponent } from './directives/directives.component';
+import { SecondProjModComponent } from './second-proj-mod/second-proj-mod.component';
+import { DropdownDirective } from './second-proj-mod/dropdown.directive';
+import {SizerDirective} from './directives/sizer.direcrive'
 
 @NgModule({
   declarations: [
@@ -40,7 +43,10 @@ import { DirectivesComponent } from './directives/directives.component';
     ImagePresenterComponent,
     VehicleSelectionComponent,
     LifeCycleComponent,
-    DirectivesComponent
+    DirectivesComponent,
+    SecondProjModComponent,
+    DropdownDirective,
+    SizerDirective
   ],
   imports: [
     BrowserModule,

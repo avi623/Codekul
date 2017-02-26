@@ -8,11 +8,22 @@ import { Component, OnInit } from '@angular/core';
 export class DirectivesComponent implements OnInit {
 
   borderStyle = {
-    border : '1px solid red'
+    border: '1px solid red'
   };
+
+  fruits = [
+    'Mango', 'Jack fruit', 'Banana', 'Water Malon'
+  ];
+
+  shouldShow = false;
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  fruitTaste(fruit: string): string {
+    console.log(fruit);
+    return fruit;
+  }
 }
