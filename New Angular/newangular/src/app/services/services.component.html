@@ -12,3 +12,8 @@
     <li *ngFor="let dev of getAllDevices()">{{dev.name}}</li>
   </ul>
 </div>
+
+<div>
+  <input type="button" class="btn btn-primary" value ="Social Details" (click)="show()">
+  <span>Fb - {{fbBadge}}</span><span>Insta - {{instaUrl}}</span>
+</div>

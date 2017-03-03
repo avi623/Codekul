@@ -1,3 +1,4 @@
+import { FbService } from './fb.service';
 import { Device, ProducerService } from './producer.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -10,9 +11,12 @@ import { Component, OnInit } from '@angular/core';
 export class ServicesComponent implements OnInit {
 
   //proSer: ProducerService;
+  instaUrl : string;
+  fbBadge : string;
 
   constructor(
-    private proSer: ProducerService
+    private proSer: ProducerService,
+    private fb : FbService
   ) {
     //this.proSer = new ProducerService();
   }
@@ -29,5 +33,10 @@ export class ServicesComponent implements OnInit {
 
   getAllDevices() {
     return this.proSer.allDevice();
+  }
+
+  show(){
+    this.fbBadge = this.fb.socialDetails()[0];
+    this.instaUrl = this.fb.socialDetails()[1];
   }
 }

@@ -1,3 +1,5 @@
+import { InstaService } from './services/insta.service';
+import { FbService } from './services/fb.service';
 import { ProducerService } from './services/producer.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -25,6 +27,8 @@ import { SizerDirective } from './directives/sizer.direcrive'
 import { SecondProjModComponent } from './second-proj-mod/second-proj-mod.component';
 import { DropdownDirective } from './second-proj-mod/dropdown.directive';
 import { ServicesComponent } from './services/services.component';
+import { ChildComponent } from './services/child.component';
+import { MyifDirective } from './directives/myif.directive';
 
 @NgModule({
   declarations: [
@@ -48,14 +52,14 @@ import { ServicesComponent } from './services/services.component';
     SizerDirective,
     SecondProjModComponent,
     DropdownDirective,    
-    ServicesComponent
+    ServicesComponent, ChildComponent, MyifDirective
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [ProducerService],
+  providers: [ProducerService, FbService, InstaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
