@@ -33,10 +33,13 @@ export class ProducerService {
     this.emitter.emit(str);
   }
 
-  subscribe(callback : MessageListener) {
+  subscribePlane(callBack : any) {
+    this.emitter.subscribe(callBack);
+  }
 
-    //let child : ChildComponent = <ChildComponent>callback;
-
-    this.emitter.subscribe(callback);
+  subscribe(callBack : MessageListener) {
+    this.emitter.subscribe( msg => {
+      callBack.onMessage(msg);
+    });
   }
 }

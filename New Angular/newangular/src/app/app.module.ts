@@ -29,6 +29,9 @@ import { DropdownDirective } from './second-proj-mod/dropdown.directive';
 import { ServicesComponent } from './services/services.component';
 import { ChildComponent } from './services/child.component';
 import { MyifDirective } from './directives/myif.directive';
+import { FormsComponent } from './forms/forms.component';
+import { DataDrivenComponent } from './forms/data-driven.component';
+import { TemplateDrivenComponent } from './forms/template-driven.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +55,7 @@ import { MyifDirective } from './directives/myif.directive';
     SizerDirective,
     SecondProjModComponent,
     DropdownDirective,    
-    ServicesComponent, ChildComponent, MyifDirective
+    ServicesComponent, ChildComponent, MyifDirective, FormsComponent, DataDrivenComponent, TemplateDrivenComponent, ChildComponent
   ],
   imports: [
     BrowserModule,

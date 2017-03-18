@@ -15,7 +15,14 @@ export class ChildComponent implements OnInit , MessageListener{
   }
 
   ngOnInit() {
-    this.producer.subscribe(this);
+    //this.producer.subscribe(this);
+    this.producer.subscribe({
+      onMessage : () =>{
+      }
+    });
+
+    this.producer.subscribePlane(msg =>{
+    });
   }
 
   onMessage(msg : string) : void {

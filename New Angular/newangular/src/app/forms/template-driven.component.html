@@ -1,0 +1,79 @@
+<form class="form-horizontal" (ngSubmit)="onSubmit(form)" #form="ngForm">
+  <fieldset>
+    <div id="legend">
+      <legend class="">Template Driven Form</legend>
+    </div>
+
+    <div class="control-group">
+      <!-- Username -->
+      <label class="control-label"  for="username">Username</label>
+      <div class="controls">
+        <input 
+          type="text" 
+          id="username" 
+          name="userName"
+          required 
+          class="input-xlarge"
+          [(ngModel)]="myForm.userName">
+        <p class="help-block">Username can contain any letters or numbers, without spaces</p>
+      </div>
+    </div>
+ 
+    <div class="control-group">
+      <!-- E-mail -->
+      <label class="control-label" for="email">E-mail</label>
+      <div class="controls">
+        <input 
+          type="text" 
+          id="email" 
+          name="email" 
+          required
+          pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
+          class="input-xlarge"
+          [(ngModel)]="myForm.email"
+          #email="ngModel">
+
+        <p class="help-block" *ngIf="!email.valid">Put Email</p>
+      </div>
+    </div>
+ 
+    <div class="control-group">
+      <!-- Password-->
+      <label class="control-label" for="password">Password</label>
+      <div class="controls">
+        <input 
+          type="password" 
+          id="password" 
+          name="password" 
+          required 
+          class="input-xlarge"
+          [(ngModel)]="myForm.password">
+        <p class="help-block">Password should be at least 4 characters</p>
+      </div>
+    </div>
+
+    <div>
+      <!-- Password-->
+      <label class="control-label" for="password">Password</label>
+      <div class="controls">
+        <input 
+          type="password" 
+          id="confirmPassword" 
+          name="password" 
+          required 
+          class="input-xlarge"
+          #confirm
+          (blur)="isPassword = (confirm.value === myForm.password)">
+        <p class="help-block" *ngIf="!isPassword">Password dosent match</p>
+      </div>
+    </div>
+ 
+    <div class="control-group">
+      <!-- Button -->
+      {{isPassword}}
+      <div class="controls">
+        <input type="submit" class="btn btn-success" value="Regsiter" [disabled]="!form.valid || !isPassword">
+      </div>
+    </div>
+  </fieldset>
+</form>
