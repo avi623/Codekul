@@ -4,6 +4,8 @@
       <legend class="">Data Driven Form</legend>
     </div>
 
+    <div formGroupName="userData">
+    
     <div class="control-group">
       <!-- Username -->
       <label class="control-label"  for="username">Username</label>
@@ -27,8 +29,9 @@
          class="input-xlarge"
          formControlName="email">
 
-        <p class="help-block" >Put Email</p>
+        <p class="help-block" *ngIf="!myForm.controls.userData.controls.email.valid" >Put Email</p>
       </div>
+    </div>
     </div>
  
     <div class="control-group">
@@ -45,9 +48,21 @@
     </div>
 
     <div class="control-group">
+      <label class="control-label" for="password">Mobile</label>
+      <div class="controls">
+        <div *ngFor="let mob of mobiles">
+          <input 
+            type="radio" 
+            formControlName="mobile"
+            value="{{mob}}">{{mob}}   
+        </div>
+      </div>
+    </div>
+
+    <div class="control-group">
       <!-- Button -->
       <div class="controls">
-        <input type="submit" class="btn btn-success" value="Regsiter">
+        <input type="submit" class="btn btn-success" value="Regsiter" [disabled]="!myForm.valid">
       </div>
     </div>
   </fieldset>
