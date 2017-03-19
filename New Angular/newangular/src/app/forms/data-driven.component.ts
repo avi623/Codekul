@@ -8,6 +8,8 @@ import {
   AbstractControl
 } from '@angular/forms'
 
+import { Observable } from 'rxjs/Rx';
+
 @Component({
   selector: 'app-data-driven',
   templateUrl: './data-driven.component.html',
@@ -25,7 +27,7 @@ export class DataDrivenComponent implements OnInit {
   ) {
     this.myForm = this.formBuilder.group({
       userData: this.formBuilder.group({
-        userName: ['codekul', Validators.required],
+        userName: ['codekul', Validators.required, this.asyncUserValidator],
         email: ['getin@codekul.com', [Validators.required, Validators.pattern("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")]]
       }),
       password: ['', [Validators.required, this.passwordValidator]],
@@ -38,6 +40,8 @@ export class DataDrivenComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.myForm.statusChanges.subscribe(status => console.log(`${status}`));
+    this.myForm.valueChanges.subscribe(val => console.log(val));
   }
   onSubmit() {
     console.log(this.myForm);
@@ -49,10 +53,18 @@ export class DataDrivenComponent implements OnInit {
 
   passwordValidator(control: FormControl): { [key: string]: any } {
     let obj = { error: 'Password length must be greater than 3' };
-    
-    if(control.value.length > 3) {
+
+    if (control.value.length > 3) {
       return null;
     }
-    return obj ;
+    return obj;
+  }
+  asyncUserValidator(control: FormControl): Promise<any> | Observable<any> {
+    return new Promise<any>((resolve, reject) => {
+      setTimeout(() => {
+        if (control.value === 'and') resolve(null);
+        else resolve({ error: 'Already Taken' });
+      }, 2500);
+    });
   }
 }
