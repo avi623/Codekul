@@ -1,3 +1,54 @@
-<p>
-  data-driven works!
-</p>
+<form class="form-horizontal" (ngSubmit)="onSubmit()" [formGroup]="myForm">
+  <fieldset>
+    <div id="legend">
+      <legend class="">Data Driven Form</legend>
+    </div>
+
+    <div class="control-group">
+      <!-- Username -->
+      <label class="control-label"  for="username">Username</label>
+      <div class="controls">
+        <input 
+          type="text" 
+          id="username" 
+          class="input-xlarge"
+          formControlName="userName">
+        <p class="help-block">Username can contain any letters or numbers, without spaces</p>
+      </div>
+    </div>
+ 
+    <div class="control-group">
+      <!-- E-mail -->
+      <label class="control-label" for="email">E-mail</label>
+      <div class="controls">
+        <input 
+          type="text" 
+          id="email" 
+         class="input-xlarge"
+         formControlName="email">
+
+        <p class="help-block" >Put Email</p>
+      </div>
+    </div>
+ 
+    <div class="control-group">
+      <!-- Password-->
+      <label class="control-label" for="password">Password</label>
+      <div class="controls">
+        <input 
+          type="password" 
+          id="password" 
+          class="input-xlarge"
+          formControlName="password">
+        <p class="help-block">Password should be at least 4 characters</p>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <!-- Button -->
+      <div class="controls">
+        <input type="submit" class="btn btn-success" value="Regsiter">
+      </div>
+    </div>
+  </fieldset>
+</form>

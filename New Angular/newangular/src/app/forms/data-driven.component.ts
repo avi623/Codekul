@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms'
 
 @Component({
   selector: 'app-data-driven',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DataDrivenComponent implements OnInit {
 
-  constructor() { }
+  private myForm: FormGroup;
+
+  constructor(
+    private formBuilder: FormBuilder
+  ) {
+    this.myForm = this.formBuilder.group({
+      userName: ['codekul'],
+      email: ['getin@codekul.com'],
+      password: ['123']
+    });
+  }
 
   ngOnInit() {
   }
-
+  onSubmit() {
+    console.log(this.myForm);
+  }
 }

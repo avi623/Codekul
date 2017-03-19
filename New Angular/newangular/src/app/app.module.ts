@@ -3,7 +3,7 @@ import { FbService } from './services/fb.service';
 import { ProducerService } from './services/producer.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
@@ -60,7 +60,8 @@ import { TemplateDrivenComponent } from './forms/template-driven.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    ReactiveFormsModule
   ],
   providers: [ProducerService, FbService, InstaService],
   bootstrap: [AppComponent]
