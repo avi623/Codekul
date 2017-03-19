@@ -59,6 +59,16 @@
       </div>
     </div>
 
+    <div class="control-group" formArrayName="cities">
+      <label class="control-label" >Add Cities</label>
+      <div class="controls">
+        <div *ngFor="let city of myForm.controls.cities.value; let cn = index;">
+          <input type="text" formControlName="{{cn}}"/>  
+        </div>
+        <input type="button" class="btn btn-primary" value="Add" (click)="addNewCity()"/>
+      </div>
+    </div>
+
     <div class="control-group">
       <!-- Button -->
       <div class="controls">

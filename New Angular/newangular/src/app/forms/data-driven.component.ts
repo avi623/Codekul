@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
+import {
+  FormBuilder,
+  FormGroup,
+  FormControl,
+  Validators,
+  FormArray
+} from '@angular/forms'
 
 @Component({
   selector: 'app-data-driven',
@@ -22,7 +28,11 @@ export class DataDrivenComponent implements OnInit {
         email: ['getin@codekul.com', [Validators.required, Validators.pattern("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")]]
       }),
       password: ['123'],
-      mobile: 'android'
+      mobile: 'android',
+      cities: this.formBuilder.array([
+        new FormControl('Pune'),
+        new FormControl('Mumbai')
+      ])
     });
   }
 
@@ -30,5 +40,9 @@ export class DataDrivenComponent implements OnInit {
   }
   onSubmit() {
     console.log(this.myForm);
+  }
+
+  addNewCity() {
+    (<FormArray>this.myForm.controls['cities']).push(new FormControl());
   }
 }
