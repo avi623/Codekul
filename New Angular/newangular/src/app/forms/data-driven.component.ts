@@ -4,7 +4,8 @@ import {
   FormGroup,
   FormControl,
   Validators,
-  FormArray
+  FormArray,
+  AbstractControl
 } from '@angular/forms'
 
 @Component({
@@ -27,7 +28,7 @@ export class DataDrivenComponent implements OnInit {
         userName: ['codekul', Validators.required],
         email: ['getin@codekul.com', [Validators.required, Validators.pattern("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")]]
       }),
-      password: ['123'],
+      password: ['', [Validators.required, this.passwordValidator]],
       mobile: 'android',
       cities: this.formBuilder.array([
         new FormControl('Pune'),
@@ -44,5 +45,14 @@ export class DataDrivenComponent implements OnInit {
 
   addNewCity() {
     (<FormArray>this.myForm.controls['cities']).push(new FormControl());
+  }
+
+  passwordValidator(control: FormControl): { [key: string]: any } {
+    let obj = { error: 'Password length must be greater than 3' };
+    
+    if(control.value.length > 3) {
+      return null;
+    }
+    return obj ;
   }
 }

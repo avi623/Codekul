@@ -43,7 +43,9 @@
           id="password" 
           class="input-xlarge"
           formControlName="password">
-        <p class="help-block">Password should be at least 4 characters</p>
+          <div class="help-block" *ngIf="myForm.controls.password.errors?.required">Password is required
+            <p class="help-block" *ngIf="myForm.controls.password.errors?.error">{{myForm.controls.password.errors?.error}}</p>
+          </div>
       </div>
     </div>
 
