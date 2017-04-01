@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-5">
+      Name <input type="text" #userName [ngModel]="user.userName"/>
+    </div>
+    <div class="col-md-5">
+      Mobile <input type="text" #mobile [ngModel]="user.mobile"/>
+    </div>
+    <div class="col-md-2">
+      <input type="button" value="Okay" class="btn btn-primary" (click)="addNewUser(userName.value, mobile.value)"/>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-md-6">
+      <input type="text" #id>
+    </div>
+    <div class="col-md-6">
+      <input value ="Search" type="button" (click)="search(id.value)" class="btn btn-primary">
+    </div>
+    <div class="col-md-6">
+      <input value ="Search User Name" type="button" (click)="searchByUserName(id.value)" class="btn btn-primary">
+    </div>
+  </div>
+</div>

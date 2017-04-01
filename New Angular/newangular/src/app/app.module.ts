@@ -1,3 +1,4 @@
+import { HttpService } from './http/http.service';
 import { InstaService } from './services/insta.service';
 import { FbService } from './services/fb.service';
 import { ProducerService } from './services/producer.service';
@@ -32,6 +33,7 @@ import { MyifDirective } from './directives/myif.directive';
 import { FormsComponent } from './forms/forms.component';
 import { DataDrivenComponent } from './forms/data-driven.component';
 import { TemplateDrivenComponent } from './forms/template-driven.component';
+import { HttpComponent } from './http/http.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,7 @@ import { TemplateDrivenComponent } from './forms/template-driven.component';
     SizerDirective,
     SecondProjModComponent,
     DropdownDirective,    
-    ServicesComponent, ChildComponent, MyifDirective, FormsComponent, DataDrivenComponent, TemplateDrivenComponent, ChildComponent
+    ServicesComponent, ChildComponent, MyifDirective, FormsComponent, DataDrivenComponent, TemplateDrivenComponent, ChildComponent, HttpComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +65,7 @@ import { TemplateDrivenComponent } from './forms/template-driven.component';
     HttpModule,
     ReactiveFormsModule
   ],
-  providers: [ProducerService, FbService, InstaService],
+  providers: [ProducerService, FbService, InstaService, HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
